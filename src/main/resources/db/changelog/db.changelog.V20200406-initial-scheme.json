@@ -3,8 +3,35 @@
     {
       "changeSet": {
         "id": "V20200406-01",
-        "author": "iago.paixao",
+        "author": "jell.santos",
         "changes": [
+          {
+            "createTable": {
+              "tableName": "beer",
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "type": "bigserial",
+                    "autoIncrement": true,
+                    "constraints": {
+                      "primaryKey": true,
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "type": "varchar(255)",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                }
+              ]
+            }
+          },
           {
             "createSequence": {
               "minValue": 1,
