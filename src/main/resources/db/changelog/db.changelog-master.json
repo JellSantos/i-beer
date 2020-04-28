@@ -2,7 +2,7 @@
   "databaseChangeLog": [
     {
       "include": {
-        "file": "db/changelog/db.changelog.V03082019-01-initial-schema.json",
+        "file": "db/changelog/db.changelog.V20200406-initial-scheme.json",
         "relativeToChangelogFile": false
       }
     }
