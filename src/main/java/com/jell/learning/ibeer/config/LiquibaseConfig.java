@@ -1,4 +1,4 @@
-package com.ipaixao.ibeer.config;
+package com.jell.learning.ibeer.config;
 
 import liquibase.integration.spring.SpringLiquibase;
 import lombok.extern.slf4j.Slf4j;

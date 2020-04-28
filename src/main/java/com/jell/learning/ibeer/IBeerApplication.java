@@ -1,4 +1,4 @@
-package com.ipaixao.ibeer;
+package com.jell.learning.ibeer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

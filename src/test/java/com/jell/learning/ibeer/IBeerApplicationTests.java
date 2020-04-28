@@ -1,12 +1,11 @@
-package com.ipaixao.ibeer;
+package com.jell.learning.ibeer;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class IBeerApplicationTests {
+public class IBeerApplicationTests {
 
-	@Test
-	void contextLoads() {}
-
+  @Test
+  void contextLoads() {}
 }
