@@ -28,6 +28,57 @@
                       "nullable": false
                     }
                   }
+                },
+                {
+                  "column": {
+                    "name": "ibu",
+                    "type": "numeric(3,2)",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "style",
+                    "type": "varchar(100)",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "price",
+                    "type": "numeric(30,2)",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },{
+                  "column": {
+                    "name": "milliliter",
+                    "type": "int",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },{
+                  "column": {
+                    "name": "created_at",
+                    "type": "timestamp without time zone",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },{
+                  "column": {
+                    "name": "update_at",
+                    "type": "timestamp without time zone",
+                    "constraints": {
+                      "nullable": true
+                    }
+                  }
                 }
               ]
             }
