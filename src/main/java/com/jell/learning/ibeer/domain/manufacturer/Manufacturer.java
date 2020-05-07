@@ -1,5 +1,6 @@
-package com.jell.learning.ibeer.domain;
+package com.jell.learning.ibeer.domain.manufacturer;
 
+import com.jell.learning.ibeer.domain.beer.Beer;
 import lombok.*;
 
 import javax.persistence.*;
@@ -25,6 +26,6 @@ public class Manufacturer {
     @Column(nullable = false)
     private String birthplace;
 
-    @OneToMany
-    private List<Beer> beerList;
+    @OneToMany(mappedBy = "manufacturer", cascade = CascadeType.ALL)
+    private List<Beer> beers;
 }

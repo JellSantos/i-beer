@@ -7,6 +7,42 @@
         "changes": [
           {
             "createTable": {
+              "tableName": "manufacturer",
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "type": "bigserial",
+                    "autoIncrement": true,
+                    "constraints": {
+                      "primaryKey": true,
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "type": "varchar(255)",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "birthplace",
+                    "type": "varchar(255)",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "createTable": {
               "tableName": "beer",
               "columns": [
                 {
@@ -17,6 +53,17 @@
                     "constraints": {
                       "primaryKey": true,
                       "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "manufacturer_id",
+                    "type": "bigserial",
+                    "constraints": {
+                      "nullable": false,
+                      "foreignKeyName": "fk_manufacturer_beer",
+                      "references": "manufacturer(id)"
                     }
                   }
                 },
@@ -80,56 +127,6 @@
                     "type": "timestamp without time zone",
                     "constraints": {
                       "nullable": true
-                    }
-                  }
-                },
-                {
-                  "column": {
-                    "name": "manufacturer_id",
-                    "type": "bigserial",
-                    "constraints": {
-                      "baseColumnNames": "manufacturer_id",
-                      "baseTableName": "manufacturer",
-                      "constraintName": "fk_beer",
-                      "onDelete": "CASCADE",
-                      "onUpdate": "RESTRICT",
-                      "referencedColumnNames": "id"
-                    }
-                  }
-                }
-              ]
-            }
-          },
-          {
-            "createTable": {
-              "tableName": "manufacturer",
-              "columns": [
-                {
-                  "column": {
-                    "name": "id",
-                    "type": "bigserial",
-                    "autoIncrement": true,
-                    "constraints": {
-                      "primaryKey": true,
-                      "nullable": false
-                    }
-                  }
-                },
-                {
-                  "column": {
-                    "name": "name",
-                    "type": "varchar(255)",
-                    "constraints": {
-                      "nullable": false
-                    }
-                  }
-                },
-                {
-                  "column": {
-                    "name": "birthplace",
-                    "type": "varchar(255)",
-                    "constraints": {
-                      "nullable": false
                     }
                   }
                 }

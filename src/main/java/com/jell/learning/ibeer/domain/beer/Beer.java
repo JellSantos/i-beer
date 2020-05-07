@@ -1,5 +1,6 @@
-package com.jell.learning.ibeer.domain;
+package com.jell.learning.ibeer.domain.beer;
 
+import com.jell.learning.ibeer.domain.manufacturer.Manufacturer;
 import lombok.*;
 
 import javax.persistence.*;
@@ -41,6 +42,7 @@ public class Beer {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "manufacturer_id")
     private Manufacturer manufacturer;
 }
