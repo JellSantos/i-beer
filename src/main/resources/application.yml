@@ -37,3 +37,13 @@ spring:
             non_contextual_creation: true
           temp:
             use_jdbc_metadata_defaults: false
+
+swagger-ui:
+  api-info:
+    title: REST support for Beer API
+    description: This is the REST UI support of Beer API. Here you can perform REST operations on the API.
+    license: Apache License 2.0
+    base_package: com.jell.learning.ibeer
+    contact_name: Jell Santos
+    contact_url: https://github.com/JellSantos/i-beer
+    contact_email: dossantosjell@gmail.com

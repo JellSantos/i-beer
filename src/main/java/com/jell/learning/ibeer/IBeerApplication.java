@@ -6,5 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class IBeerApplication {
 
-  public static void main(String[] args) { SpringApplication.run(IBeerApplication.class, args); }
+    public static void main(String[] args) {
+        SpringApplication.run(IBeerApplication.class, args);
+    }
 }
