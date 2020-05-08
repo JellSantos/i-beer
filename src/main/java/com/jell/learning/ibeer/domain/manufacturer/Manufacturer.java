@@ -4,6 +4,7 @@ import com.jell.learning.ibeer.domain.beer.Beer;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Table
@@ -28,4 +29,10 @@ public class Manufacturer {
 
     @OneToMany(mappedBy = "manufacturer", cascade = CascadeType.ALL)
     private List<Beer> beers;
+
+    @Column(nullable = false, name = "created_at")
+    private LocalDateTime createdAt;
+
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
 }
