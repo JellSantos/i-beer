@@ -97,7 +97,7 @@
                 {
                   "column": {
                     "name": "ibu",
-                    "type": "numeric(3,2)",
+                    "type": "numeric(30,2)",
                     "constraints": {
                       "nullable": false
                     }
