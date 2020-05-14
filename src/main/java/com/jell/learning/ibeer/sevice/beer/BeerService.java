@@ -1,5 +1,6 @@
 package com.jell.learning.ibeer.sevice.beer;
 
+import com.jell.learning.ibeer.domain.beer.Beer;
 import com.jell.learning.ibeer.repository.BeerRepository;
 import com.jell.learning.ibeer.sevice.beer.dto.BeerDTO;
 import com.jell.learning.ibeer.sevice.beer.mapper.BeerMapper;
@@ -30,5 +31,19 @@ public class BeerService {
 
     public BeerDTO getById(long id) {
         return mapper.toDTO(repository.getOne(id));
+    }
+
+    @Transactional
+    public void exclude(long id) {
+        repository.delete(mapper.toEntity(getById(id)));
+    }
+
+    @Transactional
+    public void excludeById(long id) {
+        repository.deleteById(id);
+    }
+
+    public BeerDTO change(BeerDTO beerDTO) {
+        return mapper.toDTO(repository.save(mapper.toEntity(beerDTO)));
     }
 }

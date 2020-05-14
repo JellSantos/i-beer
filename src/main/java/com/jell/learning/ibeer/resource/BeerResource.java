@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,5 +42,20 @@ public class BeerResource {
     @ApiOperation("Gets one Beer by id")
     public ResponseEntity<BeerDTO> getOne(@PathVariable long id) {
         return ResponseEntity.ok(service.getById(id));
+    }
+
+    @DeleteMapping("/beer/{id}")
+    @ApiOperation("Exclude one Beer by id")
+    public ResponseEntity<Void> excludeBeer(@PathVariable long id) {
+        service.excludeById(id);
+        return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+    }
+
+    @PutMapping("beer/{id}")
+    @ApiOperation("Change Beer")
+    public ResponseEntity<BeerDTO> change(@PathVariable long id, @Valid @RequestBody BeerDTO beerDTO) {
+        BeerDTO beerOldDto = service.getById(id);
+        beerOldDto.setName(beerDTO.getName());
+        return ResponseEntity.ok(service.change(beerOldDto));
     }
 }
