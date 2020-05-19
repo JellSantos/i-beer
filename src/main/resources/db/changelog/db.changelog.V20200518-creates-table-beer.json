@@ -2,63 +2,9 @@
   "databaseChangeLog": [
     {
       "changeSet": {
-        "id": "V20200427-01",
+        "id": "V20200518-03",
         "author": "jell.santos",
         "changes": [
-          {
-            "createTable": {
-              "tableName": "manufacturer",
-              "columns": [
-                {
-                  "column": {
-                    "name": "id",
-                    "type": "bigserial",
-                    "autoIncrement": true,
-                    "constraints": {
-                      "primaryKey": true,
-                      "nullable": false
-                    }
-                  }
-                },
-                {
-                  "column": {
-                    "name": "name",
-                    "type": "varchar(255)",
-                    "constraints": {
-                      "nullable": false
-                    }
-                  }
-                },
-                {
-                  "column": {
-                    "name": "birthplace",
-                    "type": "varchar(255)",
-                    "constraints": {
-                      "nullable": false
-                    }
-                  }
-                },
-                {
-                  "column": {
-                    "name": "created_at",
-                    "type": "timestamp without time zone",
-                    "constraints": {
-                      "nullable": false
-                    }
-                  }
-                },
-                {
-                  "column": {
-                    "name": "updated_at",
-                    "type": "timestamp without time zone",
-                    "constraints": {
-                      "nullable": true
-                    }
-                  }
-                }
-              ]
-            }
-          },
           {
             "createTable": {
               "tableName": "beer",
@@ -149,14 +95,6 @@
                   }
                 }
               ]
-            }
-          },
-          {
-            "createSequence": {
-              "minValue": 1,
-              "schemaName": "public",
-              "sequenceName": "hibernate_sequence",
-              "startValue": 1
             }
           }
         ]

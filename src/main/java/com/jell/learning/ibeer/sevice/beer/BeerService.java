@@ -6,6 +6,8 @@ import com.jell.learning.ibeer.sevice.beer.mapper.BeerMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,5 +22,25 @@ public class BeerService {
     @Transactional
     public BeerDTO create(BeerDTO dto) {
         return mapper.toDTO(repository.save(mapper.toEntity(dto)));
+    }
+
+    @Transactional(readOnly = true)
+    public Page<BeerDTO> getAll(Pageable pageable) {
+        return repository.findAll(pageable).map(mapper::toDTO);
+    }
+
+    @Transactional(readOnly = true)
+    public BeerDTO getById(long id) {
+        return mapper.toDTO(repository.getOne(id));
+    }
+
+    @Transactional
+    public BeerDTO update(BeerDTO beerDTO) {
+        return mapper.toDTO(repository.save(mapper.toEntity(beerDTO)));
+    }
+
+    @Transactional
+    public void deleteById(long id) {
+        repository.deleteById(id);
     }
 }
