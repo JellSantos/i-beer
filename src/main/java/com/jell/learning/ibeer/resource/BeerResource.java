@@ -27,12 +27,17 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/beers")
-@Api(value = "Beer Resource", hidden = true)
 @ApiModel(value = "Beer Resource", description = "Provide Beer Operations")
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class BeerResource {
 
     private final BeerService service;
+
+    @PostMapping
+    @ApiOperation("Create a new Beer")
+    public ResponseEntity<BeerDTO> create(@RequestBody @Valid BeerDTO dto) {
+        return ResponseEntity.created(URI.create("/beers")).body((service.create(dto)));
+    }
 
     @GetMapping
     @ApiOperation("Gets all Beers")
@@ -42,25 +47,19 @@ public class BeerResource {
     }
 
     @GetMapping("/{id}")
-    @ApiOperation("Gets one Beer by id")
+    @ApiOperation("Gets a Beer by id")
     public ResponseEntity<BeerDTO> getOne(@PathVariable long id) {
         return ResponseEntity.ok(service.getById(id));
     }
 
-    @PostMapping
-    @ApiOperation("Perform one Beer")
-    public ResponseEntity<BeerDTO> create(@RequestBody @Valid BeerDTO dto) {
-        return ResponseEntity.created(URI.create("/beers")).body((service.create(dto)));
-    }
-
     @PutMapping("/{id}")
-    @ApiOperation("Change Beer")
+    @ApiOperation("Updates a Beer")
     public ResponseEntity<BeerDTO> update(@Valid @RequestBody BeerDTO dto) {
         return ResponseEntity.ok(service.update(dto));
     }
 
     @DeleteMapping("/{id}")
-    @ApiOperation("Exclude one Beer by id")
+    @ApiOperation("Exclude a Beer by id")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable long id) {
         service.deleteById(id);
