@@ -68,7 +68,7 @@ public class BeerServiceTest {
     }
 
     @Test
-    public void shouldReturnABeersSuccessfully_whenGetByIdBeerIsCalled() {
+    public void shouldReturnBeerSuccessfully_whenGetByIdBeerIsCalled() {
         final var beer = beer();
         final var beerDTO = beerDTO();
         final long id = 50;
@@ -84,7 +84,7 @@ public class BeerServiceTest {
     }
 
     @Test
-    public void shouldReturnABeerSuccessfully_whenUpdateIsCalled() {
+    public void shouldReturnBeerSuccessfully_whenUpdateIsCalled() {
         final var beer = beer();
         final var beerDTO = beerDTO();
 

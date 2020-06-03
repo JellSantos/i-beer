@@ -1,6 +1,5 @@
 package com.jell.learning.ibeer.service.manufacturer;
 
-
 import com.jell.learning.ibeer.repository.ManufacturerRepository;
 import com.jell.learning.ibeer.sevice.manufacturer.ManufacturerService;
 import com.jell.learning.ibeer.sevice.manufacturer.mapper.ManufacturerMapper;
@@ -35,7 +34,7 @@ public class ManufacturerServiceTest {
     private ManufacturerService service;
 
     @Test
-    public void shouldReturnAManufacturerSuccessfully_whenCreateIsCalled() {
+    public void shouldReturnManufacturerSuccessfully_whenCreateIsCalled() {
         final var manufacturer = manufacturer();
         final var manufacturerDTO = manufacturerDTO();
 
@@ -68,7 +67,7 @@ public class ManufacturerServiceTest {
     }
 
     @Test
-    public void shouldReturnAManufacturerSuccessfully_whenGetByIdManufacturerIsCalled() {
+    public void shouldReturnManufacturerSuccessfully_whenGetByIdManufacturerIsCalled() {
         final var manufacturer = manufacturer();
         final var manufacturerDTO = manufacturerDTO();
         final long id = 50;
@@ -84,7 +83,7 @@ public class ManufacturerServiceTest {
     }
 
     @Test
-    public void shouldReturnAManufacturerSuccessfully_whenUpdateIsCalled() {
+    public void shouldReturnManufacturerSuccessfully_whenUpdateIsCalled() {
         final var manufacturer = manufacturer();
         final var manufacturerDTO = manufacturerDTO();
 
