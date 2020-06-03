@@ -68,7 +68,7 @@ public class ManufacturerServiceTest {
     }
 
     @Test
-    public void shouldReturnManufacturersSuccessfully_whenGetByIdManufacturerIsCalled() {
+    public void shouldReturnAManufacturerSuccessfully_whenGetByIdManufacturerIsCalled() {
         final var manufacturer = manufacturer();
         final var manufacturerDTO = manufacturerDTO();
         final long id = 50;
@@ -79,7 +79,6 @@ public class ManufacturerServiceTest {
         final var response = service.getById(id);
 
         assertThat(response, is(manufacturerDTO));
-
         verify(repository).getOne(id);
         verify(mapper).toDTO(manufacturer);
     }
@@ -88,7 +87,6 @@ public class ManufacturerServiceTest {
     public void shouldReturnAManufacturerSuccessfully_whenUpdateIsCalled() {
         final var manufacturer = manufacturer();
         final var manufacturerDTO = manufacturerDTO();
-        ;
 
         Mockito.when(mapper.toEntity(manufacturerDTO)).thenReturn(manufacturer);
         Mockito.when(repository.save(manufacturer)).thenReturn(manufacturer);
