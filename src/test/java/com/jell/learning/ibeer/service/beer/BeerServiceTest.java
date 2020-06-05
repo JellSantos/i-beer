@@ -100,7 +100,7 @@ public class BeerServiceTest {
     }
 
     @Test
-    public void shouldReturnSuccessfully_whenDeleteByIdBeerIsCalled() {
+    public void shouldSuccessfullyDelete_whenDeleteByIdIsCalled() {
         final long id = 50;
         final var idCaptor = ArgumentCaptor.forClass(Long.class);
 
