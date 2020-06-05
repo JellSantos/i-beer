@@ -35,7 +35,7 @@ public class BeerServiceTest {
     private BeerService service;
 
     @Test
-    public void shouldReturnABeerSuccessfully_whenCreateIsCalled() {
+    public void shouldSuccessfullyCreateABeer_whenCreateIsCalled() {
         final var beer = beer();
         final var beerDTO = beerDTO();
 
