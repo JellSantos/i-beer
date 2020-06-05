@@ -84,7 +84,7 @@ public class BeerServiceTest {
     }
 
     @Test
-    public void shouldReturnBeerSuccessfully_whenUpdateIsCalled() {
+    public void shouldSuccessfullyUpdateABeer_whenUpdateIsCalled() {
         final var beer = beer();
         final var beerDTO = beerDTO();
 
