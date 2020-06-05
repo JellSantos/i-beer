@@ -1,4 +1,4 @@
-package com.jell.learning.ibeer.resource;
+package com.jell.learning.ibeer.resource.manufacturer;
 
 import com.jell.learning.ibeer.sevice.manufacturer.ManufacturerService;
 import com.jell.learning.ibeer.sevice.manufacturer.dto.ManufacturerDTO;
@@ -10,10 +10,19 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
 import java.net.URI;
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/manufacturers")
@@ -24,9 +33,9 @@ public class ManufacturerResource {
     private final ManufacturerService service;
 
     @PostMapping
-    @ApiOperation("Create a new Manufacturer")
-    public ResponseEntity<ManufacturerDTO> create(@RequestBody @Valid ManufacturerDTO manufacturerDTO) {
-        return ResponseEntity.created(URI.create("/manufacturers")).body((service.create(manufacturerDTO)));
+    @ApiOperation("Creates a new Manufacturer")
+    public ResponseEntity<ManufacturerDTO> create(@RequestBody @Valid ManufacturerDTO dto) {
+        return ResponseEntity.created(URI.create("/manufactures")).body((service.create(dto)));
     }
 
     @GetMapping
@@ -44,8 +53,8 @@ public class ManufacturerResource {
 
     @PutMapping("/{id}")
     @ApiOperation("Updates a Manufacturer")
-    public ResponseEntity<ManufacturerDTO> update(@Valid @RequestBody ManufacturerDTO manufacturerDTO) {
-        return ResponseEntity.ok(service.update(manufacturerDTO));
+    public ResponseEntity<ManufacturerDTO> update(@Valid @RequestBody ManufacturerDTO dto) {
+        return ResponseEntity.ok(service.update(dto));
     }
 
     @DeleteMapping("/{id}")

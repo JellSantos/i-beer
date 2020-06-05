@@ -1,8 +1,7 @@
-package com.jell.learning.ibeer.resource;
+package com.jell.learning.ibeer.resource.beer;
 
 import com.jell.learning.ibeer.sevice.beer.BeerService;
 import com.jell.learning.ibeer.sevice.beer.dto.BeerDTO;
-import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
@@ -34,7 +33,7 @@ public class BeerResource {
     private final BeerService service;
 
     @PostMapping
-    @ApiOperation("Create a new Beer")
+    @ApiOperation("Creates a new Beer")
     public ResponseEntity<BeerDTO> create(@RequestBody @Valid BeerDTO dto) {
         return ResponseEntity.created(URI.create("/beers")).body((service.create(dto)));
     }

@@ -4,7 +4,8 @@ services:
   ibeer-db:
     image: postgres:latest
     networks:
-      - ibeer-db-network
+      ibeer-network:
+        ipv4_address: 172.17.0.5
     restart: always
     ports:
       - 5432:5432
@@ -16,9 +17,11 @@ services:
       POSTGRES_PASSWORD: secret
 
 networks:
-  ibeer-db-network:
-    driver: bridge
-
+  ibeer-network:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.17.0.0/16
 volumes:
   ibeer-db_data:
     driver: local

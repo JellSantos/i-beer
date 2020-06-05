@@ -6,10 +6,10 @@ spring:
     allow-bean-definition-overriding: true
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/ibeer_db
+    url: jdbc:postgresql://172.17.0.5:5432/ibeer_db
     driverClassName: org.postgresql.Driver
-    username: postgres
-    password: secret
+    username: ${POSTGRES_USER:postgres}
+    password: ${POSTGRES_PASSWORD:secret}
 
   liquibase:
     change-log: classpath:/db/changelog/db.changelog-master.json

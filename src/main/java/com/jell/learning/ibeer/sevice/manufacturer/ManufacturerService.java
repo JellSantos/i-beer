@@ -1,7 +1,6 @@
 package com.jell.learning.ibeer.sevice.manufacturer;
 
 import com.jell.learning.ibeer.repository.ManufacturerRepository;
-import com.jell.learning.ibeer.sevice.beer.dto.BeerDTO;
 import com.jell.learning.ibeer.sevice.manufacturer.dto.ManufacturerDTO;
 import com.jell.learning.ibeer.sevice.manufacturer.mapper.ManufacturerMapper;
 import lombok.RequiredArgsConstructor;
@@ -19,8 +18,8 @@ public class ManufacturerService {
     private final ManufacturerMapper mapper;
 
     @Transactional
-    public ManufacturerDTO create(ManufacturerDTO manufacturerDTO) {
-        return mapper.toDTO(repository.save(mapper.toEntity(manufacturerDTO)));
+    public ManufacturerDTO create(ManufacturerDTO dto) {
+        return mapper.toDTO(repository.save(mapper.toEntity(dto)));
     }
 
     @Transactional(readOnly = true)
@@ -34,8 +33,8 @@ public class ManufacturerService {
     }
 
     @Transactional
-    public ManufacturerDTO update(ManufacturerDTO manufacturerDTO) {
-        return mapper.toDTO(repository.save(mapper.toEntity(manufacturerDTO)));
+    public ManufacturerDTO update(ManufacturerDTO dto) {
+        return mapper.toDTO(repository.save(mapper.toEntity(dto)));
     }
 
     @Transactional
