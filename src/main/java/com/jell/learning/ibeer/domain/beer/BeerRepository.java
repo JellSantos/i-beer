@@ -8,6 +8,7 @@ import java.util.Optional;
 
 @Repository
 public interface BeerRepository extends JpaRepository<Beer, Long> {
+    @EntityGraph(value = "Beer", attributePaths = {"id"})
     Optional<Beer> findByName(String name);
 
     @EntityGraph(value = "Beer", attributePaths = {"id"})

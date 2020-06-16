@@ -1,5 +1,6 @@
 package com.jell.learning.ibeer.domain.beer;
 
+import com.jell.learning.ibeer.domain.common.NameDuplicatedException;
 import com.jell.learning.ibeer.interfaces.incomming.beer.dto.BeerDTO;
 import com.jell.learning.ibeer.interfaces.incomming.beer.mapper.BeerMapper;
 import com.jell.learning.ibeer.interfaces.incomming.beer.response.BeerResponse;
@@ -71,11 +72,11 @@ public class BeerServiceTest {
         when(mapper.toDTO(any(Beer.class))).thenReturn(dto);
 
         final var expectedException = assertThrows(
-                BeerNameDuplicatedException.class,
+                NameDuplicatedException.class,
                 () -> service.create(dto)
         );
 
-        assertThat(expectedException, instanceOf(BeerNameDuplicatedException.class));
+        assertThat(expectedException, instanceOf(NameDuplicatedException.class));
         assertTrue(expectedException.getMessage().contains("Name Duplicated!"));
         verify(repository).findByName(beerNameCaptor.capture());
         verify(mapper).toDTO(beerCaptor.capture());
@@ -174,10 +175,10 @@ public class BeerServiceTest {
         when(mapper.toDTO(any(Beer.class))).thenReturn(dto);
 
         final var expectedException = assertThrows(
-                BeerNameDuplicatedException.class,
+                NameDuplicatedException.class,
                 () -> service.update(dto)
         );
-        assertThat(expectedException, instanceOf(BeerNameDuplicatedException.class));
+        assertThat(expectedException, instanceOf(NameDuplicatedException.class));
         assertTrue(expectedException.getMessage().contains("Name Duplicated!"));
         verify(repository).findByNameAndIdNot(beerNameCaptor.capture(), idCaptor.capture());
         verify(mapper).toDTO(beerCaptor.capture());

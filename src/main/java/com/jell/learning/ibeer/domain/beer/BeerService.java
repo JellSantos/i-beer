@@ -1,5 +1,6 @@
 package com.jell.learning.ibeer.domain.beer;
 
+import com.jell.learning.ibeer.domain.common.DuplicationValidator;
 import com.jell.learning.ibeer.interfaces.incomming.beer.dto.BeerDTO;
 import com.jell.learning.ibeer.interfaces.incomming.beer.mapper.BeerMapper;
 import com.jell.learning.ibeer.interfaces.incomming.beer.response.BeerResponse;
@@ -38,7 +39,7 @@ public class BeerService {
                 .flatMap(d -> repository.findByNameAndIdNot(d.name(), d.id()).map(mapper::toDTO))
                 .orElseGet(() -> repository.findByName(dto.name()).map(mapper::toDTO).orElse(null));
 
-        new BeerValidator()
+        new DuplicationValidator()
                 .accept(duplicatedBeer);
     }
 

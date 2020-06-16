@@ -1,7 +1,8 @@
-package com.jell.learning.ibeer.resource.manufacturer;
+package com.jell.learning.ibeer.interfaces.incomming.manufacturer;
 
 import com.jell.learning.ibeer.domain.manufacturer.ManufacturerService;
 import com.jell.learning.ibeer.interfaces.incomming.manufacturer.dto.ManufacturerDTO;
+import com.jell.learning.ibeer.interfaces.incomming.manufacturer.response.ManufacturerResponse;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
@@ -34,26 +35,26 @@ public class ManufacturerResource {
 
     @PostMapping
     @ApiOperation("Creates a new Manufacturer")
-    public ResponseEntity<ManufacturerDTO> create(@RequestBody @Valid ManufacturerDTO dto) {
+    public ResponseEntity<ManufacturerResponse> create(@RequestBody @Valid ManufacturerDTO dto) {
         return ResponseEntity.created(URI.create("/manufactures")).body((service.create(dto)));
     }
 
     @GetMapping
     @ApiOperation("Gets all Manufacturers")
-    public ResponseEntity<Page<ManufacturerDTO>> getAll(@RequestParam(name = "page", defaultValue = "0") int page,
-                                                        @RequestParam(name = "size", defaultValue = "10") int size) {
+    public ResponseEntity<Page<ManufacturerResponse>> getAll(@RequestParam(name = "page", defaultValue = "0") int page,
+                                                             @RequestParam(name = "size", defaultValue = "10") int size) {
         return ResponseEntity.ok(service.getAll(PageRequest.of(page, size)));
     }
 
     @GetMapping("/{id}")
     @ApiOperation("Gets a Manufacturer by id")
-    public ResponseEntity<ManufacturerDTO> getOne(@PathVariable long id) {
+    public ResponseEntity<ManufacturerResponse> getOne(@PathVariable long id) {
         return ResponseEntity.ok(service.getById(id));
     }
 
     @PutMapping
     @ApiOperation("Updates a Manufacturer")
-    public ResponseEntity<ManufacturerDTO> update(@Valid @RequestBody ManufacturerDTO dto) {
+    public ResponseEntity<ManufacturerResponse> update(@Valid @RequestBody ManufacturerDTO dto) {
         return ResponseEntity.ok(service.update(dto));
     }
 
