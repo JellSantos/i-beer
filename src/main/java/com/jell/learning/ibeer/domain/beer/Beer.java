@@ -1,6 +1,6 @@
 package com.jell.learning.ibeer.domain.beer;
 
-import com.jell.learning.ibeer.audit.DateAudit;
+import com.jell.learning.ibeer.domain.common.DateAudit;
 import com.jell.learning.ibeer.domain.manufacturer.Manufacturer;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
